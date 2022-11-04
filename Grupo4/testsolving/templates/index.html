@@ -1,0 +1,9 @@
+{% if allTestsIds %}
+<ul>
+{% for x in allTestsIds %}
+<li>{{ x.id }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No questions are available.</p>
+{% endif %}
