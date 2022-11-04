@@ -1,9 +1,9 @@
-{% if allTestsIds %}
+{% if tests %}
 <ul>
-{% for x in allTestsIds %}
-<li>{{ x.id }}</li>
+{% for test_id in test_id %}
+<li>{{ test_id }}</li>
 {% endfor %}
 </ul>
 {% else %}
-<p>No questions are available.</p>
+<p>No ids are available.</p>
 {% endif %}

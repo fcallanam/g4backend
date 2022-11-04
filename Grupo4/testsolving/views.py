@@ -5,21 +5,17 @@ from testsolving.funcs import *
 # Create your views here.
 
 def getTestId(request):
-    allTestsIds = Testes.objects.values('id')
+    tests_id = Testes.objects.values('id')
 
-    list = [i for i in allTestsIds.values()]
+    # context = {'tests_id': [i for i in tests_id.values()]}
 
-    context = {'tests': list}
+    context = {'tests_id': tests_id}
 
-    print("============\n")
-    print(list)
-    print("\n============\n")
-
-    return render(request, "index.html", context)
-    # return context
+    # return render(request, "index.html", context)
+    return context
 
 def getQuestionId(request, testId):
-    allQuestionsId = PerguntasTestes.objects.get(id=testId)
+    allQuestionsId = PerguntasTestes.objects.get(testes_id=testId)
 
     list = [i for i in allQuestionsId.values()]
 
@@ -37,7 +33,7 @@ def getQuestionId(request, testId):
 def testsolvingView(request):
     # data = Get Users (maybe), questions and answers
     tests = getTestId(request)
-    print("hi")
+
+    questions = getQuestionId(request, 101)
 
     return render(request, template_name="index.html", context=tests)
-    # return render(request, template_name="testsolving.html", context=data)
