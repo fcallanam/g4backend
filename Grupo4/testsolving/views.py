@@ -34,6 +34,6 @@ def testsolvingView(request):
     # data = Get Users (maybe), questions and answers
     tests = getTestId(request)
 
-    questions = getQuestionId(request, 101)
+    # questions = getQuestionId(request, 101)
 
     return render(request, template_name="index.html", context=tests)
